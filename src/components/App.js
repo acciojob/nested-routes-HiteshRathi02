@@ -1,13 +1,19 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Layout from './Layout';
+import Women from './Women';
+import Item from './Item';
 
-import React from "react";
-import './../styles/App.css';
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="women" element={<Women />}>
+          <Route path=":item" element={<Item />} />
+        </Route>
+      </Route>
+    </Routes>
+  </Router>
+);
 
-const App = () => {
-  return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
-}
-
-export default App
+export default App;
